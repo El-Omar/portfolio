@@ -1,9 +1,9 @@
 {
-  "name": "gatsby-starter-default",
+  "name": "elomar-portfolio",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
+  "description": "Portfolio website for El Omar",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "El Omar <hi@elomar.be>",
   "dependencies": {
     "gatsby": "^2.23.12",
     "gatsby-cli": "^2.12.95",
