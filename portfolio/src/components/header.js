@@ -1,35 +1,29 @@
-import { Link } from "gatsby"
+// import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import React from "react"
+import logo from "../assets/images/logo@2x.png";
+// import headerStyles from "../styles/header.module.scss";
 
-const Header = ({ siteTitle }) => (
-  <header
-    style={{
-      background: `rebeccapurple`,
-      marginBottom: `1.45rem`,
-    }}
-  >
-    <div
-      style={{
-        margin: `0 auto`,
-        maxWidth: 960,
-        padding: `1.45rem 1.0875rem`,
-      }}
-    >
-      <h1 style={{ margin: 0 }}>
-        <Link
-          to="/"
-          style={{
-            color: `white`,
-            textDecoration: `none`,
-          }}
-        >
-          {siteTitle}
-        </Link>
-      </h1>
-    </div>
-  </header>
-)
+const Header = ({ siteTitle }) => {
+
+  return (
+    <header className={ `page__header` }>
+      <img src={ logo } height="70" alt="elomar logo" className={ `logo logo--header` } />
+      <nav className="page__nav">
+        <button className={ `nav__trigger` }>
+          <div className="trigger__line trigger__line--first"></div>
+          <div className="trigger__line trigger__line--second"></div>
+          <div className="trigger__line trigger__line--third"></div>
+        </button>
+        <ul className={ `nav__list nav__list--closed` }>
+          <li className="nav__item"><a href="#definition" title="Definition">Definition</a></li>
+          <li className="nav__item"><a href="#work" title="work">Work</a></li>
+          <li className="nav__item"><a href="#contact" title="contact">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+  );
+};
 
 Header.propTypes = {
   siteTitle: PropTypes.string,
