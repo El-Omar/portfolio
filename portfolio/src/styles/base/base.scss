@@ -120,7 +120,7 @@ main {
 .wrapper--expertise {
   margin: 0 -#{$padding};
   padding: $padding 0;
-  background: rgba($primary, .5);
+  background: linear-gradient(180deg, rgba(255, 187, 181, .5), #f2473869);
   
   .wrapper__header {
     width: 50%;

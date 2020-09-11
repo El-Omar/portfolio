@@ -1,5 +1,5 @@
 import React from "react"
-// import { Link } from "gatsby"
+import { useStaticQuery, graphql } from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -9,6 +9,8 @@ import Skillset from "../components/skillset";
 import imgAnalyze from "../assets/images/wireframes.jpg";
 import imgDesign from "../assets/images/design2.jpg";
 import imgCode from "../assets/images/code.jpg";
+
+import Img from "gatsby-image";
 
 const IndexPage = () => {
   const skillsets = [
@@ -27,10 +29,33 @@ const IndexPage = () => {
     {
       id: "code",
       title: "Coding",
-      desc: "I specialize in web development, Frontend and Backend. Nowadays, with web technology you can accomplish pretty much anything, from native apps to desktop programs to web apps. But I'm always open to other things!",
+      desc: "I specialize in web development, Frontend and Backend. Nowadays, with web technologies you can accomplish pretty much anything, from native apps to desktop programs to web apps. But I'm always open to other things!",
       img: imgCode
     },
   ];
+
+  const projectsData = useStaticQuery(graphql`
+    { 
+      projects: allContentfulProject(sort: {fields: [createdAt]}) {
+        edges {
+          node {
+            slug
+            title
+            keywords
+            images {
+              fixed(width: 800) {
+                ...GatsbyContentfulFixed
+              }
+              title
+            }
+            link
+          }
+        }
+      }
+    }
+  `);
+
+  // console.log();
 
   return (
     <Layout>
@@ -68,9 +93,23 @@ const IndexPage = () => {
           <h1 className="wrapper__title">Projects</h1>
         </header>
 
-        <article className="project">
-          
-        </article>
+        { projectsData.projects.edges.map(project => {
+          return (
+            <div key={project.node.slug}>
+              <h3>{project.node.title}</h3>
+            </div>
+          )
+          ;
+        }) }
+
+        <Img 
+          // fluid={allContentfulBlog.edges[0].node.coverImage.fluid} 
+          // key={allContentfulBlog.edges[0].node.coverImage.fluid.src}
+          // alt={allContentfulBlog.edges[0].node.coverImage.title}
+          fixed={projectsData.projects.edges[0].node.images[0].fixed }
+          key={projectsData.projects.edges[0].node.images[0].title}
+          alt={projectsData.projects.edges[0].node.images[0].title}
+        />
       </section>
     </Layout>
   )
