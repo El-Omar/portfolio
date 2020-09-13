@@ -25,31 +25,3 @@ button {
   cursor: pointer;
   border-radius: .8rem;
 }
-
-.wrapper__title {
-  margin: 1rem 0;
-  font-family: 'Khula';
-  font-size: calc(4rem + (6 - 4) * ((100vw - 320px) / (1920 - 320)));
-  letter-spacing: .18rem;
-}
-
-.italic {
-  font-family: 'Libre Baskerville';
-  font-weight: normal;
-}
-
-.subtitle {
-  font-family: 'Dancing Script';
-  font-size: 2rem;
-  color: var(--primary);
-  margin-bottom: 2rem;
-  display: inline-block;
-}
-
-.color-primary {
-  color: var(--primary);
-}
-
-.hidden {
-  display: none;
-}

@@ -25,12 +25,14 @@ export const query = graphql`
       title
       keywords
       images {
-        file {
-          url
+        fluid(maxWidth: 800) {
+          ...GatsbyContentfulFluid
         }
       }
       link
-      createdAt
+      briefing {
+        briefing
+      }
      }
   }
 `;

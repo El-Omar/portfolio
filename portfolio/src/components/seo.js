@@ -19,6 +19,7 @@ function SEO({ description, lang, meta, title }) {
             title
             description
             author
+            url
           }
         }
       }
@@ -33,7 +34,13 @@ function SEO({ description, lang, meta, title }) {
         lang,
       }}
       title={title}
-      titleTemplate={`%s | ${site.siteMetadata.title}`}
+      titleTemplate={`%s - ${site.siteMetadata.title}`}
+      link={[
+        {
+          rel: `canonical`,
+          href: site.siteMetadata.url
+        },
+      ]}
       meta={[
         {
           name: `description`,
@@ -66,6 +73,18 @@ function SEO({ description, lang, meta, title }) {
         {
           name: `twitter:description`,
           content: metaDescription,
+        },
+        {
+          name: `og:url`,
+          content: site.siteMetadata.url,
+        },
+        {
+          name: `og:locale`,
+          content: lang,
+        },
+        {
+          name: `og:image`,
+          content: "",
         },
       ].concat(meta)}
     />

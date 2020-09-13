@@ -7,6 +7,7 @@ module.exports = {
     title: `El Omar`,
     description: `Digital designer and a creative developer. Creating and designing websites for businesses and creatives.`,
     author: `elomar`,
+    url: `https://www.elomar.be/`
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -18,14 +19,12 @@ module.exports = {
       },
     },
     `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
-    // {
-
-    //   resolve: `gatsby-plugin-sass`,
-    //   options: {
-      
-    //   },
-    // },
+    {
+      resolve: `gatsby-plugin-sharp`,
+      options: {
+        icon: `src/assets/images/logo-icon.png`
+      }
+    },
     `gatsby-plugin-styled-components`,
     {
       resolve: `gatsby-source-contentful`,
@@ -37,29 +36,15 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
+        name: `Elomar-portfolio`,
+        short_name: `Elomar`,
         start_url: `/`,
-        background_color: `#663399`,
-        theme_color: `#663399`,
+        background_color: `#f8f8f8`,
+        theme_color: `#f8f8f8`,
         display: `minimal-ui`,
-        icon: `src/assets/images/gatsby-icon.png`, // This path is relative to the root of the site.
+        icon: `src/assets/images/logo-icon.png`, // This path is relative to the root of the site.
       },
     },
-    // {
-    //   resolve: `gatsby-plugin-postcss`,
-    //   options: {
-    //     postCssPlugins: [
-    //       require(`postcss-preset-env`)({ 
-    //       stage: 2,
-    //       features: {
-    //         'nesting-rules': true
-    //       },
-    //     }),
-    //     require(`postcss-nesting`)
-    //   ],
-    //   },
-    // },
     {
       resolve: `gatsby-plugin-web-font-loader`,
       options: {

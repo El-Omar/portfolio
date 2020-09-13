@@ -166,8 +166,6 @@ export default $spaceInvaders => {
     resultDisplay.textContent = `Score: ${result > 0 ? result : ``}`;
     document.addEventListener('keyup', shoot);
     document.addEventListener('keydown', moveShooter);
-    console.log("difficulty", difficulty);
-    console.log('won: ', howManyTimesDidPlayerWin)
     invaderId = setInterval(moveInvaders, difficulty);
   };
 

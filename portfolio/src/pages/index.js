@@ -80,9 +80,9 @@ const IndexPage = () => {
       </section>
 
       <section className="wrapper wrapper--expertise">
-        <header className="wrapper__header">
+        <header className="wrapper__header wrapper__header--center">
           <h1 className="wrapper__title">
-            What can<br />
+            What can <br />
             <span className="italic">I do</span>?
           </h1>
         </header>
@@ -93,7 +93,7 @@ const IndexPage = () => {
       </section>
 
       <section className="wrapper wrapper--projects">
-        <header>
+        <header className="wrapper__header">
           <strong className="subtitle">My work!</strong>
           <h1 className="wrapper__title">Projects</h1>
         </header>
@@ -117,13 +117,14 @@ const IndexPage = () => {
       </section>
 
       <section className="wrapper wrapper--contact">
-        <header className="section__header section__header--center">
+        <header className="wrapper__header wrapper__header--center">
           <strong className="subtitle">Get in touch</strong>
           <h1 className="wrapper__title">Wanna get to <br/> 
           know me <span className="italic">& play <br/>Space Invaders</span><span className="color-primary">?</span></h1>
         </header>
 
         <div className="container">
+          <a className="btn-contact" href="mailto:hi@elomar.be">Say hi!</a>
           <div className="spaceinvaders" ref={el => $spaceInvaders = el}>
             <div className="game">
               { 
@@ -140,8 +141,6 @@ const IndexPage = () => {
               <span className="high-score">High score: <span className="value">0</span></span>
             </div>
           </div>
-
-          <a className="btn-contact" href="mailto:hi@elomar.be">Say hi!</a>
         </div>
       </section>
     </Layout>
