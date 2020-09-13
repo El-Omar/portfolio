@@ -369,7 +369,7 @@ export const Container = styled.div`
     }
 
     .wrapper__header {
-      margin-bottom: 3rem;
+      margin-bottom: 1rem;
 
       ${mediaQueries(450)`
         br {
