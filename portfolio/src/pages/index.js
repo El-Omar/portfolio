@@ -1,5 +1,5 @@
-import React from "react"
-import { useStaticQuery, graphql } from "gatsby"
+import React, { useRef, useEffect } from "react"
+import { useStaticQuery, graphql, Link } from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -11,6 +11,8 @@ import imgDesign from "../assets/images/design2.jpg";
 import imgCode from "../assets/images/code.jpg";
 
 import Img from "gatsby-image";
+
+import spaceInvaders from "../scripts/spaceInvaders";
 
 const IndexPage = () => {
   const skillsets = [
@@ -41,21 +43,24 @@ const IndexPage = () => {
           node {
             slug
             title
-            keywords
             images {
-              fixed(width: 800) {
-                ...GatsbyContentfulFixed
+              fluid(maxWidth: 800) {
+                ...GatsbyContentfulFluid
               }
               title
             }
-            link
           }
         }
       }
     }
   `);
 
-  // console.log();
+  const spaceInvadersDivs = Array(225).fill('block');
+  let $spaceInvaders = useRef(null);
+
+  useEffect(() => {
+    spaceInvaders($spaceInvaders);
+  }, [$spaceInvaders]);
 
   return (
     <Layout>
@@ -93,23 +98,51 @@ const IndexPage = () => {
           <h1 className="wrapper__title">Projects</h1>
         </header>
 
-        { projectsData.projects.edges.map(project => {
-          return (
-            <div key={project.node.slug}>
-              <h3>{project.node.title}</h3>
-            </div>
-          )
-          ;
-        }) }
+        <div className="projects__wrap">
+          { projectsData.projects.edges.map(({ node: project }) => {
+            return (
+              <article className="project" key={project.slug}>
+                <Link to={`/projects/${project.slug}/`}>
+                  <Img 
+                    fluid={project.images[0].fluid }
+                    key={project.images[0].title}
+                    alt={project.images[0].title}
+                    style={{ height: `100%`, }}
+                  />
+                </Link>
+              </article>
+            )
+          }) }
+        </div>
+      </section>
 
-        <Img 
-          // fluid={allContentfulBlog.edges[0].node.coverImage.fluid} 
-          // key={allContentfulBlog.edges[0].node.coverImage.fluid.src}
-          // alt={allContentfulBlog.edges[0].node.coverImage.title}
-          fixed={projectsData.projects.edges[0].node.images[0].fixed }
-          key={projectsData.projects.edges[0].node.images[0].title}
-          alt={projectsData.projects.edges[0].node.images[0].title}
-        />
+      <section className="wrapper wrapper--contact">
+        <header className="section__header section__header--center">
+          <strong className="subtitle">Get in touch</strong>
+          <h1 className="wrapper__title">Wanna get to <br/> 
+          know me <span className="italic">& play <br/>Space Invaders</span><span className="color-primary">?</span></h1>
+        </header>
+
+        <div className="container">
+          <div className="spaceinvaders" ref={el => $spaceInvaders = el}>
+            <div className="game">
+              { 
+                spaceInvadersDivs.map((_, i) => (
+                  <div className={_} key={i}></div>
+                ))
+              }
+            </div>
+            <div className="game-info">
+              <button className="btn-play">
+                <span className="play">Play</span>
+                <span className="result"></span>
+              </button>
+              <span className="high-score">High score: <span className="value">0</span></span>
+            </div>
+          </div>
+
+          <a className="btn-contact" href="mailto:hi@elomar.be">Say hi!</a>
+        </div>
       </section>
     </Layout>
   )

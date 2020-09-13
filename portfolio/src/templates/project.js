@@ -1,14 +1,20 @@
 import React from "react";
 import { graphql } from "gatsby";
 
+import Layout from '../components/layout';
+import SEO from '../components/seo';
+
 const Project = ({ data }) => {
 
   return (
-    <div>
-      <h1>
-        { data.project.title }
-      </h1>
-    </div>
+    <Layout>
+      <SEO title="Details" />
+      <div>
+        <h1>
+          { data.project.title }
+        </h1>
+      </div>
+    </Layout>
   )
 };
 
