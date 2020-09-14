@@ -3,10 +3,10 @@ import styled from 'styled-components';
 
 import { variables, mediaQueries } from "./variables";
 
-const { primary, black } = variables.colors;
+const { primary, lightblue, black, lightgreen } = variables.colors;
 const { spacing } = variables.spacing;
-const { heading, italic, script, body } = variables.fonts;
-const { shooterBg, invaderBg, deadBg } = variables.sprites;
+const { heading, italic, script } = variables.fonts;
+const { svgs } = variables;
 
 export const Container = styled.div`
 
@@ -386,18 +386,36 @@ export const Container = styled.div`
     }
 
     .btn-contact {
-      width: 18rem;
+      position: relative;
+      width: 22rem;
       height: 6rem;
       margin-bottom: 4rem;
+      padding-right: 2.6rem;
       display: flex;
       justify-content: center;
       align-items: center;
-      background: ${black};
-      color: white;
-      font-size: 2.4rem;
-      font-family: ${italic};
+      background: ${lightblue};
+      border: 3px solid white;
+      color: ${black};
+      font-weight: bold;
+      font-size: 1.6rem;
+      /* font-family: ${italic}; */
       text-decoration: none;
-      border-radius: 2rem;
+      text-transform: uppercase;
+      border-radius: 1.4rem;
+
+      &::after {
+        content: '';
+        position: absolute;
+        width: 2.2rem;
+        height: 2.2rem;
+        top: 1.6rem;
+        right: 2.2rem;
+        background-image: ${svgs.mail(black)};
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+      }
     }
   }
 
@@ -416,11 +434,12 @@ export const Container = styled.div`
       justify-content: center;
       align-items: center;
       padding: 1rem 4rem;
-      border: 1px solid ${primary};
+      border: 2px solid ${`white`};
       text-transform: uppercase;
       font-size: 1.4rem;
       font-weight: bold;
-      color: ${primary};
+      background: ${lightgreen};
+      color: ${black};
     }
 
     .high-score {
@@ -465,11 +484,11 @@ export const Container = styled.div`
     }
 
     .shooter {
-      background-image: ${shooterBg};
+      background-image: ${svgs.shooter(black)};
     }
 
     .invader {
-      background-image: ${invaderBg};
+      background-image: ${svgs.invader(black)};
     }
 
     .boom {
@@ -483,7 +502,7 @@ export const Container = styled.div`
         right: 0;
         width: 100%;
         height: 100%;
-        background-image: ${deadBg};
+        background-image: ${svgs.dead(primary)};
         background-repeat: no-repeat;
         background-size: contain;
       }

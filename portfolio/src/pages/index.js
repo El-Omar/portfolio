@@ -124,7 +124,7 @@ const IndexPage = () => {
         </header>
 
         <div className="container">
-          <a className="btn-contact" href="mailto:hi@elomar.be">Say hi!</a>
+          <a className="btn-contact" href="mailto:hi@elomar.be">Get in touch</a>
           <div className="spaceinvaders" ref={el => $spaceInvaders = el}>
             <div className="game">
               { 
