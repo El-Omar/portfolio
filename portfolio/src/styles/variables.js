@@ -4,7 +4,7 @@ export const variables = {
     secondary: `#1acbbf`,
     black: `#1c1b20`,
     light: `#f8f8f8`,
-    lightblue: `#cfdefb`,
+    lightblue: `#9cdeff`,
     lightgreen: `#6de8ab`
   },
 

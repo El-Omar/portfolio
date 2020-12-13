@@ -1,9 +1,9 @@
-import React, { useRef, useEffect } from "react"
+import React, { useRef, useEffect, useState } from "react"
 import { useStaticQuery, graphql, Link } from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import Elomar from "../assets/images/elomar@2x.png";
+// import Elomar from "../assets/images/elomar@2x.png";
 
 import Skillset from "../components/skillset";
 import imgAnalyze from "../assets/images/wireframes.jpg";
@@ -36,7 +36,7 @@ const IndexPage = () => {
     },
   ];
 
-  const projectsData = useStaticQuery(graphql`
+  const data = useStaticQuery(graphql`
     { 
       projects: allContentfulProject(sort: {fields: [createdAt]}) {
         edges {
@@ -45,10 +45,17 @@ const IndexPage = () => {
             title
             images {
               fluid(maxWidth: 800) {
-                ...GatsbyContentfulFluid
+                ...GatsbyContentfulFluid_withWebp
               }
               title
             }
+          }
+        }
+      }
+      placeholderImage: file(relativePath: { eq: "elomar@2x.png" }) {
+        childImageSharp {
+          fluid(maxWidth: 1104) {
+            ...GatsbyImageSharpFluid_withWebp_tracedSVG
           }
         }
       }
@@ -62,6 +69,23 @@ const IndexPage = () => {
     spaceInvaders($spaceInvaders);
   }, [$spaceInvaders]);
 
+  const projectRefs = useRef([]);
+  const [projects, setProjects] = useState([]);
+
+  useEffect(() => {
+    let projects = data.projects.edges;
+    projectRefs.current = new Array(projects.length);
+    setProjects(projects);
+    console.log("projects before focussing ")
+  }, [data.projects.edges]);
+
+  useEffect(() => {
+    if (projects.length > 0) {
+      projectRefs.current[projects.length - 1].focus();
+    }
+    console.log("projects in focus: ", projects);
+  }, [projects]);
+
   return (
     <Layout>
       <SEO title="Home" />
@@ -74,9 +98,11 @@ const IndexPage = () => {
             experiences</span><span className="color-primary">.</span>
           </h1>
         </header>
-        <div className="elomar__img">
-          <img src={ Elomar } alt="elomar" />
-        </div>
+        <Img 
+          className="elomar__img" 
+          alt="El Omar" 
+          fluid={data.placeholderImage.childImageSharp.fluid} 
+          imgStyle={{ objectPosition: '50% 100%', objectFit: 'contain' }} />
       </section>
 
       <section className="wrapper wrapper--expertise">
@@ -99,9 +125,10 @@ const IndexPage = () => {
         </header>
 
         <div className="projects__wrap">
-          { projectsData.projects.edges.map(({ node: project }) => {
+          { data.projects.edges.map(({ node: project }, i) => {
             return (
-              <article className="project" key={project.slug}>
+              <article ref={el => projectRefs.current[i] = el}
+                className="project" key={project.slug}>
                 <Link to={`/projects/${project.slug}/`}>
                   <Img 
                     fluid={project.images[0].fluid }

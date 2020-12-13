@@ -16,7 +16,7 @@ const Skillset = ({ id, title, desc, img }) => {
             { title }
           </h2>
         </header>
-        <p className="skillset__desc">
+        <p className="desc desc--skillset">
           { desc }
         </p>
       </div>

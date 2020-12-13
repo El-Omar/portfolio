@@ -1,14 +1,15 @@
-// import { Link } from "gatsby"
+import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import React from "react"
 import logo from "../assets/images/logo@2x.png";
-// import headerStyles from "../styles/header.module.scss";
 
-const Header = ({ siteTitle }) => {
+const Header = () => {
 
   return (
     <header className={ `page__header` }>
-      <img src={ logo } height="70" alt="elomar logo" className={ `logo logo--header` } />
+      <Link to='/'>
+        <img src={ logo } height="70" alt="elomar logo" className={ `logo logo--header` } />
+      </Link>
       <nav className="page__nav">
         <button className={ `nav__trigger` }>
           <div className="trigger__line trigger__line--first"></div>

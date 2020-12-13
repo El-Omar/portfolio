@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 import { variables, mediaQueries } from "./variables";
 
-const { primary, lightblue, black, lightgreen } = variables.colors;
+const { primary, lightblue, black, lightgreen, secondary } = variables.colors;
 const { spacing } = variables.spacing;
 const { heading, italic, script } = variables.fonts;
 const { svgs } = variables;
@@ -156,11 +156,12 @@ export const Container = styled.div`
   }
 
   .elomar__img {
+    width: 100%;
     height: 60%;
-    overflow: hidden;
+    /* overflow: hidden; */
 
     img {
-      height: 120%;
+      /* height: 120%; */
     }
 
     ${mediaQueries(`sm`)`
@@ -179,14 +180,20 @@ export const Container = styled.div`
     `}
   }
 
+  .desc {
+    max-width: 40rem;
+    font-size: 1.4rem;
+    line-height: 2.4rem;
+  }
+
   .wrapper--expertise {
     margin: 0 -${spacing};
-    padding: ${spacing} 0;
+    /* padding: ${spacing} 0; */
     background: linear-gradient(180deg, rgba(255, 187, 181, .5), #f2473869);
+    padding: 3rem;
 
-    ${mediaQueries(992)`
-      padding: 3rem;
-    `}
+    /* ${mediaQueries(992)` */
+    /* `} */
   }
 
   .skillset {
@@ -196,12 +203,13 @@ export const Container = styled.div`
     font-size: 1.6rem;
     line-height: 2.8rem;
     position: relative;
+    flex-flow: column;
 
-    ${mediaQueries(992)`
-      flex-flow: column;
-      width: 100%;
+    /* ${mediaQueries(992)` */
+      /* flex-flow: column; */
+      /* width: 100%; */
 
-      .skillset__content {
+      /* .skillset__content {
         order: -1;
       }
 
@@ -212,8 +220,8 @@ export const Container = styled.div`
 
       &.skillset--design .skillset__content {
         margin-left: auto;
-      }
-    `}
+      } */
+    /* `} */
 
     /* Ball */
     &::before {
@@ -241,12 +249,20 @@ export const Container = styled.div`
 
     &--analyze {
       margin-right: auto;
+
+      .img__wrap {
+        margin-left: auto;
+      }
     }
 
     &--design {
       margin-left: auto;
       margin-top: 8rem;
       margin-bottom: 8rem;
+
+      .skillset__content {
+        margin-left: auto;
+      }
 
       &::before {
         left: auto;
@@ -265,6 +281,11 @@ export const Container = styled.div`
     
     &--code {
       margin-right: auto;
+
+      .img__wrap {
+        margin-left: auto;
+      }
+
     }
 
     &__title {
@@ -303,6 +324,7 @@ export const Container = styled.div`
     }
 
     &__content {
+      order: -1;
       width: 50%;
       display: flex;
       flex-flow: column;
@@ -313,19 +335,13 @@ export const Container = styled.div`
       background: white;
     }
 
-    &__desc {
-      max-width: 40rem;
-      font-size: 1.4rem;
-      line-height: 2.4rem;
-    }
-
-    ${mediaQueries("sm")`
+    /* ${mediaQueries("sm")` */
       .skillset__content,
       .img__wrap {
         order: 1;
         width: 100%;
       }
-    `}
+    /* `} */
   }
 
   .wrapper--projects {
@@ -358,6 +374,17 @@ export const Container = styled.div`
 
     .gatsby-image-wrapper {
       border-radius: .8rem;
+
+      &::after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+        background: ${secondary};
+        opacity: .5;
+      }
     }
   }
 
@@ -387,25 +414,21 @@ export const Container = styled.div`
 
     .btn-contact {
       position: relative;
-      width: 22rem;
-      height: 6rem;
+      width: 20rem;
+      height: 5.6rem;
       margin-bottom: 4rem;
-      padding-right: 2.6rem;
+      /* padding-right: 2.6rem; */
       display: flex;
       justify-content: center;
       align-items: center;
       background: ${lightblue};
-      border: 3px solid white;
       color: ${black};
-      font-weight: bold;
       font-size: 1.6rem;
-      /* font-family: ${italic}; */
       text-decoration: none;
       text-transform: uppercase;
-      border-radius: 1.4rem;
 
       &::after {
-        content: '';
+        /* content: ''; */
         position: absolute;
         width: 2.2rem;
         height: 2.2rem;
@@ -434,10 +457,8 @@ export const Container = styled.div`
       justify-content: center;
       align-items: center;
       padding: 1rem 4rem;
-      border: 2px solid ${`white`};
       text-transform: uppercase;
       font-size: 1.4rem;
-      font-weight: bold;
       background: ${lightgreen};
       color: ${black};
     }
