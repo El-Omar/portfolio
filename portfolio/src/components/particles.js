@@ -1,12 +1,19 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import Particles from 'react-particles-js';
 
 const P = () => {
+  const WIDTH = useRef(1920);
+  const HEIGHT = useRef(1080);
+
+  useEffect(() => {
+    WIDTH.current = window.innerWidth - 60;
+    HEIGHT.current = window.innerHeight - 60;
+  }, []);
 
   return (
     <Particles className="particles" 
-      width={window.innerWidth - 60}
-      height={window.innerHeight - 60}
+      width={WIDTH.current}
+      height={HEIGHT.current}
       params={{
         background: {
           color: {
