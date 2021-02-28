@@ -5,7 +5,8 @@ export const variables = {
     black: `#1c1b20`,
     light: `#f8f8f8`,
     lightblue: `#9cdeff`,
-    lightgreen: `#6de8ab`
+    lightgreen: `#6de8ab`,
+    darkblue: `#0c1f2b`,
   },
 
   spacing: {
