@@ -15,48 +15,47 @@ const Project = ({ data }) => {
   console.log(project);
 
   return (
-    <div>hello</div>
-    // <Layout>
-    //   <SEO title={project.title} />
-    //   <ProjectStyles>
-    //     <section className={`wrapper wrapper--project__details${isLeft ? ` left` : ` right`}`}>
-    //       <header className="wrapper__header wrapper__header--project">
-    //         <h1 className="wrapper__title">
-    //           { project.title }
-    //         </h1>
-    //         <strong className="project__keywords">
-    //           { project.keywords.map(keyword => (
-    //             <span className="keyword" key={keyword}>{keyword}</span>
-    //           )) }
-    //         </strong>
-    //       </header>
+    <Layout>
+      <SEO title={project.title} />
+      <ProjectStyles>
+        <section className={`wrapper wrapper--project__details${isLeft ? ` left` : ` right`}`}>
+          <header className="wrapper__header wrapper__header--project">
+            <h1 className="wrapper__title">
+              { project.title }
+            </h1>
+            <strong className="project__keywords">
+              { project.keywords.map(keyword => (
+                <span className="keyword" key={keyword}>{keyword}</span>
+              )) }
+            </strong>
+          </header>
 
-    //       <div className="project__intro">
-    //         <div className="desc desc--project">
-    //           { documentToReactComponents(project.description.json) }
-    //         </div>
+          <div className="project__intro">
+            <div className="desc desc--project">
+              { documentToReactComponents(project.description.json) }
+            </div>
 
-    //         <Img className="project__thumbnail"
-    //           fluid={project.images[0].fluid }
-    //           key={project.images[0].title}
-    //           alt={project.images[0].title}
-    //            />
-    //       </div>
+            <Img className="project__thumbnail"
+              fluid={project.images[0].fluid }
+              key={project.images[0].title}
+              alt={project.images[0].title}
+               />
+          </div>
 
 
-    //       {/* { project.images.map(img => (
-    //         <div className="project__img">
-    //           <Img 
-    //             fluid={img.fluid }
-    //             key={img.title}
-    //             alt={img.title}
-    //             style={{ height: `100%`, }}
-    //           />
-    //         </div>
-    //       )) } */}
-    //     </section>
-    //   </ProjectStyles>
-    // </Layout>
+          {/* { project.images.map(img => (
+            <div className="project__img">
+              <Img 
+                fluid={img.fluid }
+                key={img.title}
+                alt={img.title}
+                style={{ height: `100%`, }}
+              />
+            </div>
+          )) } */}
+        </section>
+      </ProjectStyles>
+    </Layout>
   )
 };
 
