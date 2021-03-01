@@ -266,8 +266,8 @@ const IndexPage = () => {
             </h1>
           </header>
           <div className="skillset__wrapper">
-            { skillsets.map(skillset => {
-              return <Skillset key={ skillset.id } { ...skillset } />
+            { skillsets.map((skillset, index) => {
+              return <Skillset key={ skillset.id } { ...skillset } index={index} />
             }) }
           </div>
         </section>

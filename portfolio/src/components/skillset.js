@@ -1,9 +1,13 @@
 import React from "react"
 
-const Skillset = ({ id, title, desc, img }) => {
+const Skillset = ({ id, title, desc, img, index }) => {
 
   return (
-    <article className={ "skillset skillset--" + id } >
+    <article className={ "skillset skillset--" + id } 
+      data-sal="slide-right" 
+      data-sal-duration="800"
+      data-sal-delay={index * 130} >
+
       <div className="img__wrap">
         <strong className="skillset__subtitle">
           { id }
