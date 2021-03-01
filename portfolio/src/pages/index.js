@@ -85,6 +85,14 @@ const IndexPage = () => {
   }, []);
 
   useEffect(() => {
+    setTimeout(() => {
+      if (isLoading) {
+        setLoading(false);
+      }
+    }, 3000);
+  }, [isLoading]);
+
+  useEffect(() => {
     setNumberOfAssets(data.projects.edges.length + 1);
   }, [data]);
 
