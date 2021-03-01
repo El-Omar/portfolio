@@ -271,8 +271,8 @@ const IndexPage = () => {
             }) }
           </div>
         </section>
-
-        <section className="wrapper wrapper--projects" id="work">
+        <div id="work"></div>
+        <section className="wrapper wrapper--projects">
           <header className="wrapper__header wrapper__header--center">
             <strong className="subtitle">My work!</strong>
             <h1 className="wrapper__title">Projects</h1>
