@@ -35,7 +35,7 @@ const Header = () => {
         <img src={ logo } height="70" alt="elomar logo" className={ `logo logo--header` } />
       </AnchorLink>
       <nav className="page__nav">
-        <button className={ `nav__trigger${isNavOpen ? ` open` : ``}` } onClick={() => toggleNav(toggle => toggle = !toggle)}>
+        <button aria-label="Navigation button" className={ `nav__trigger${isNavOpen ? ` open` : ``}` } onClick={() => toggleNav(toggle => toggle = !toggle)}>
           <div className="trigger__line trigger__line--first"></div>
           <div className="trigger__line trigger__line--second"></div>
           <div className="trigger__line trigger__line--third"></div>
