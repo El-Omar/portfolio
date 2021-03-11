@@ -1,8 +1,8 @@
 <h1 align="center">
-  Gatsby's default starter
+  El Omar's portfolio website
 </h1>
 
-<h2 align="center">
+<h2>
   Stack:
 </h2>
 
