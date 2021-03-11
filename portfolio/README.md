@@ -4,10 +4,7 @@
 </h1>
 <h4 align="center"><a href="https://www.elomar.be/">www.elomar.be</a></h4>
 
-
-<h2>
-  Stack:
-</h2>
+<h2>Stack:</h2>
 
 <ul>
   <li>Frontend: <strong>Gatsby.js</strong></li>
