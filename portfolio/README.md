@@ -2,7 +2,7 @@
   El Omar's portfolio website
   
 </h1>
-<h4 align="center">https://www.elomar.be/</h4>
+<h4 align="center"><a href="https://www.elomar.be/" target="_blank">www.elomar.be</a></h4>
 
 
 <h2>
