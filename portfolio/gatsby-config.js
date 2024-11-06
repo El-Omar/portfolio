@@ -1,4 +1,4 @@
-require("dotenv").config({ 
+require("dotenv").config({
   path: ".env"
 });
 
@@ -19,12 +19,12 @@ module.exports = {
       },
     },
     `gatsby-transformer-sharp`,
-    {
-      resolve: `gatsby-plugin-sharp`,
-      options: {
-        icon: `src/assets/images/logo-icon.png`
-      }
-    },
+    // {
+    //   resolve: `gatsby-plugin-sharp`,
+    //   options: {
+    //     icon: `src/assets/images/logo-icon.png`
+    //   }
+    // },
     `gatsby-plugin-styled-components`,
     {
       resolve: `gatsby-source-contentful`,
