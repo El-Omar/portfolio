@@ -311,7 +311,7 @@ export const Container = styled.div`
 
   .desc {
     max-width: 40rem;
-    font-size: 1.4rem;
+    font-size: 1.6rem;
     line-height: 2.4rem;
   }
 

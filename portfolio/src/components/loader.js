@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import { gsap, Power2 } from "gsap"
 
 import { Container } from "../styles/loader";
-import logo from "../assets/images/logo-white.png";
+import logo from "../assets/images/logo@2x.png";
 
 const Loader = ({ startAnimating, startAnimatingHome }) => {
   const $loader = useRef(null);
@@ -21,33 +21,29 @@ const Loader = ({ startAnimating, startAnimatingHome }) => {
         }
       });
   
-      tl.to($line, {
-        duration: 1,
-        autoAlpha: 0,
-        ease: Power2.easeInOut,
-      })
-      .to($circle, {
-        duration: 1,
-        autoAlpha: 0,
-        ease: Power2.easeInOut,
-      })
-      .to($logo, {
-        duration: .4,
-        duration: .4,
-        autoAlpha: 0,
-        ease: Power2.easeOut,
-      })
-      .to($loader.current, {
-        autoAlpha: 0,
-        duration: 0,
-      })
-      .to($cover, {
-        duration: .3,
-        transform: `translateY(-120%)`,
-        ease: Power2.easeInOut,
-        delay: .6,
-        stagger: .1,
-      });
+      tl
+        .to($line, {
+          duration: 1,
+          autoAlpha: 0,
+          ease: Power2.easeInOut,
+        })
+        .to($circle, {
+          duration: 1,
+          autoAlpha: 0,
+          ease: Power2.easeInOut,
+        })
+        .to($logo, {
+          duration: .4,
+          duration: .4,
+          autoAlpha: 0,
+          ease: Power2.easeOut,
+        })
+        .to($cover, {
+          duration: .3,
+          yPercent: -100,
+          ease: Power2.easeInOut,
+          stagger: .1,
+        });
     }
 
   }, [startAnimating, startAnimatingHome]);  
@@ -63,7 +59,7 @@ const Loader = ({ startAnimating, startAnimatingHome }) => {
           <div className="loader-line-mask">
             <div className="loader-line"></div>
           </div>
-          <img className="logo" src={logo} alt="Logo" width="40" />
+          <img className="logo" src={logo} alt="Logo" width="40" style={{ filter: "invert(1)" }} />
         </div>
       </div>
     </Container>
